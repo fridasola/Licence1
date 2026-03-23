@@ -24,3 +24,11 @@ H = Hanoi (5 ,0.5)
 solve (H ,5 ,0 ,2 ,1) 
 H = Hanoi (10 ,0.01) 
     solve (H ,10 ,0 ,2 ,1)
+#4
+def solve (n ,A ,B , C ): 
+  """ 
+  int x int x int x int -> list ( of couples of int ) renvoie la suite des mouvements à effectuer pour déplacer les n disques supérieurs de la tige A vers la tige B ( C est la tige restante ) 
+  """ 
+  if n ==1: 
+    return [( A , B )] 
+  return solve (n -1 ,A ,C , B )+[( A , B )]+ solve (n -1 ,C ,B , A )
